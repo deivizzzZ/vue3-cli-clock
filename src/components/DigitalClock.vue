@@ -7,7 +7,11 @@ dayjs.extend(timezone);
 export default {
   name: "DigitalClock",
   props: {
-    colorClock: String
+    colorClock: String,
+    timeZone: {
+      type: String,
+      default: "Europe/Madrid"
+    }
   },
   data() {
     return {
@@ -23,10 +27,11 @@ export default {
   },
   methods: {
     setTime() {
-      const date = new Date();
-      this.hours = date.getHours();
-      this.minutes = date.getMinutes();
-      this.seconds = date.getSeconds();
+      let date = new Date();
+      date = dayjs(date).tz(this.timeZone);
+      this.hours = dayjs(date).hour();
+      this.minutes = dayjs(date).minute();
+      this.seconds = dayjs(date).second();
       this.pmHours = this.hours > 12;
     },
     timeFormat(time) {
