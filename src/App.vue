@@ -7,7 +7,7 @@ import DigitalClock from "./components/DigitalClock.vue";
     <h1>Digital Clock</h1>
     <div class="container-clock">
       <DigitalClock colorClock="blue" timeZone="America/New_York" />
-      <DigitalClock colorClock="yellow" />
+      <DigitalClock colorClock="white" />
       <DigitalClock colorClock="red" timeZone="Europe/Moscow" />
     </div>
   </div>

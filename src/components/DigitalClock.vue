@@ -53,6 +53,7 @@ export default {
 
 <template>
   <div class="container" :class="colorClock">
+    <p>{{ this.timeZone.split("/")[1].replace("_", " ") }}</p>
     <div class="lcd">
       <div v-if="this.pm" class="hours">{{ this.timeFormat(this.ampm(hours)) }}</div>
       <div v-else class="hours">{{ this.timeFormat(hours) }}</div>
@@ -73,6 +74,11 @@ export default {
 .container:last-of-type {
   border-right: none;
 }
+
+p {
+  font-family: "Orbitron", sans-serif;
+  text-align: center;
+}
 .lcd {
   font-family: "Orbitron", sans-serif;
   font-size: 2rem;
@@ -88,9 +94,9 @@ export default {
   background-color: blue;
   color: white;
 }
-.yellow {
-  background-color: yellow;
-  color: blue;
+.white {
+  background-color: white;
+  color: black;
 }
 
 button {
